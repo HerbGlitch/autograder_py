@@ -4,3 +4,6 @@
 
 #url to solution directory
 #url to problem sets
+from autograde.autograde import Autograde
+
+autograde = Autograde();
