@@ -30,7 +30,7 @@ class RunFiles:
     def get_assignments(self):
         assignments = []
         for assignment in self.get_solution_files():
-            if(assignment.split(".")[0] not in assignment):
+            if(assignment.split(".")[0] not in assignments):
                 assignments.append(assignment.split(".")[0])
         return assignments
 
