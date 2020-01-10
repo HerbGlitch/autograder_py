@@ -1,3 +1,10 @@
 code:
-
+//lib library_path
+//command num_times
+//comments_needed
+//ignore
 output:
+exact
+//soft_search_all_outputs
+//ignore
+//specific_output

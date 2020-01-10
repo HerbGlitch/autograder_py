@@ -3,7 +3,7 @@ from os.path import isfile, join
 
 class RunFiles:
     def __init__(self):
-        self.solutions_input_rubric = "input/rubric/"
+        self.rubric_input_path = "input/rubric/"
         self.solutions_input_path = "input/solutions/"
         self.assignments_input_path = "input/assignments/"
         self.solutions_output_path = "output/solutions/"
@@ -13,7 +13,7 @@ class RunFiles:
         self.run_files()
 
     def check_path(self):
-        print("are these the correct paths")
+        print("check path")
 
     def clear_out_folders(self):
         system("del /q " + self.assignments_output_path.replace('/','\\')[0:] + "*")
@@ -27,11 +27,26 @@ class RunFiles:
         for assignment in self.assignment_files:
             system("python " +  self.assignments_input_path + assignment + " >> " + self.assignments_output_path + assignment.split(".")[0] + ".out")
 
+    def get_assignments(self):
+        assignments = []
+        for assignment in self.get_solution_files():
+            if(assignment.split(".")[0] not in assignment):
+                assignments.append(assignment.split(".")[0])
+        return assignments
+
+    def get_students_from_assignment(self, assignment_name):
+        students = []
+        for assignment in self.get_assignment_files():
+            if(assignment.split("-")[0] in assignment_name):
+                students.append(assignment.split("-")[1].split(".")[0])
+        return students
+
     def get_solution_files(self):
         return self.solution_files
 
     def get_assignment_files(self):
         return self.assignment_files
+
 
 
 # from Tkinter import Tk
