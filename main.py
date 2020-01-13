@@ -1,14 +1,12 @@
-#check specified libraries
-#check data types
-#compare to solution
-
-#url to solution directory
-#url to problem sets
-
+from autograde.file_manipulation import RunFiles
 from autograde.autograde import Autograde
 
-autograde = Autograde()
+all_files = RunFiles()
+autograde = Autograde(all_files)
 
-# from autograde.autograde import Autograde
+# from Tkinter import Tk
+# from tkinter.filedialog import askopenfilename
 #
-# autograde = Autograde();
+# Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+# filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
+# print(filename)

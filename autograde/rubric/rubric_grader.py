@@ -15,6 +15,11 @@ class RubricGrader:
         for student in self.all_files.get_students_from_assignment(self.assignment_name):
             rubric_code = RubricCode(self.get_rubric_by_topic("code"), self.all_files, self.assignment_name, student)
             rubric_output = RubricOutput(self.get_rubric_by_topic("output"), self.all_files, self.assignment_name, student)
+            self.students[student] = {
+                # "code":rubric_code,
+                "output":rubric_output.get_score(),
+            }
+        print(self.students)
 
     def set_rubric_path(self, rubric_path):
         self.rubric_path = rubric_path

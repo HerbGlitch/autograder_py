@@ -41,17 +41,48 @@ class RunFiles:
                 students.append(assignment.split("-")[1].split(".")[0])
         return students
 
+    def get_assignment_as_string(self, assignment_name):
+        if(assignment_name + ".py" in self.solution_files):
+            assignment_string = ""
+            assignment_file = open(self.solutions_input_path + assignment_name + ".py", 'r')
+            for line in assignment_file:
+                assignment_string += line
+            assignment_file.close()
+            return assignment_string
+        return ""
+
+    def get_assignment_by_student_as_string(self, assignment_student_name):
+        if(assignment_student_name + ".py" in self.assignment_files):
+            assignment_string = ""
+            assignment_file = open(self.assignments_input_path + assignment_student_name + ".py", 'r')
+            for line in assignment_file:
+                assignment_string += line
+            assignment_file.close()
+            return assignment_string
+        return ""
+
+    def get_assignment_output_as_string(self, assignment_name):
+        if(assignment_name + ".py" in self.solution_files):
+            assignment_string = ""
+            assignment_file = open(self.solutions_output_path + assignment_name + ".out", 'r')
+            for line in assignment_file:
+                assignment_string += line
+            assignment_file.close()
+            return assignment_string
+        return ""
+
+    def get_assignment_output_by_student_as_string(self, assignment_student_name):
+        if(assignment_student_name + ".py" in self.assignment_files):
+            assignment_string = ""
+            assignment_file = open(self.assignments_output_path + assignment_student_name + ".out", 'r')
+            for line in assignment_file:
+                assignment_string += line
+            assignment_file.close()
+            return assignment_string
+        return ""
+
     def get_solution_files(self):
         return self.solution_files
 
     def get_assignment_files(self):
         return self.assignment_files
-
-
-
-# from Tkinter import Tk
-# from tkinter.filedialog import askopenfilename
-#
-# Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-# filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
-# print(filename)

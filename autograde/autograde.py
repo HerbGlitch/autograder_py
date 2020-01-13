@@ -1,9 +1,8 @@
-from .file_manipulation import RunFiles
 from .rubric.rubric_grader import RubricGrader
 
 class Autograde:
-    def __init__(self):
-        self.all_files = RunFiles()
+    def __init__(self, all_files):
+        self.all_files = all_files
         self.run()
 
     def run(self):
