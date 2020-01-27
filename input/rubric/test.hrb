@@ -3,6 +3,7 @@ code:
 //command num_times
 //comments_needed
 //ignore
+
 output:
 exact
 //soft_search_all_outputs

@@ -1,12 +1,6 @@
-from autograde.file_manipulation import RunFiles
-from autograde.autograde import Autograde
+from autograde.tkinter_gui import Window
 
-all_files = RunFiles()
-autograde = Autograde(all_files)
+app = Window()
 
-# from Tkinter import Tk
-# from tkinter.filedialog import askopenfilename
-#
-# Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-# filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
-# print(filename)
+app.main_screen()
+app.master.mainloop()

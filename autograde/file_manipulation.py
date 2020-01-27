@@ -2,18 +2,14 @@ from os import listdir, system
 from os.path import isfile, join
 
 class RunFiles:
-    def __init__(self):
+    def __init__(self, solutions_input_path, assignments_input_path):
+        self.solutions_input_path = str(solutions_input_path)
+        self.assignments_input_path = str(assignments_input_path)
         self.rubric_input_path = "input/rubric/"
-        self.solutions_input_path = "input/solutions/"
-        self.assignments_input_path = "input/assignments/"
         self.solutions_output_path = "output/solutions/"
         self.assignments_output_path = "output/assignments/"
-        self.check_path()
         self.clear_out_folders()
         self.run_files()
-
-    def check_path(self):
-        print("check path")
 
     def clear_out_folders(self):
         system("del /q " + self.assignments_output_path.replace('/','\\')[0:] + "*")
