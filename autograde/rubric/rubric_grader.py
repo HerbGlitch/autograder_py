@@ -16,8 +16,8 @@ class RubricGrader:
             rubric_code = RubricCode(self.get_rubric_by_topic("code"), self.all_files, self.assignment_name, student)
             rubric_output = RubricOutput(self.get_rubric_by_topic("output"), self.all_files, self.assignment_name, student)
             self.students[student] = {
-                # "code":rubric_code,
-                "output":rubric_output.get_score(),
+                "code": rubric_code.get_score(),
+                "output": rubric_output.get_score(),
             }
         print(self.students)
 

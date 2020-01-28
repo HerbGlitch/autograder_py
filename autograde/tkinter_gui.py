@@ -33,12 +33,13 @@ class Window(Frame):
     def run_files(self):
         self.all_files = RunFiles(self.solutions_path, self.assignments_path)
         run = Button(self.master, text="run", command=self.run, width=20).grid(column=5, row=4, pady=5, padx=5, sticky=tk.W + tk.S)
-        rb_text = tk.Text(self.master, height=20, width=60)
-        r_g = RubricGenerator("test", self.all_files)
-        rb_text.insert(INSERT, r_g.get_rubric_string())
-        rb_text.grid(column=0, columnspan=3, row=4, pady=5, padx=5, sticky=tk.W + tk.E)
+        self.rb_text = tk.Text(self.master, height=20, width=60)
+        r_g = RubricGenerator("test", self.all_files) #generate rubric
+        self.rb_text.insert(INSERT, r_g.get_rubric_string())
+        self.rb_text.grid(column=0, columnspan=3, row=4, pady=5, padx=5, sticky=tk.W + tk.E)
 
     def run(self):
+        self.all_files.write_to_rubric("test", self.rb_text.get("1.0",'end-1c')) #write to rubric file
         autograde = Autograde(self.all_files)
 
     def set_assignment_path(self):

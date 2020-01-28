@@ -77,6 +77,11 @@ class RunFiles:
             return assignment_string
         return ""
 
+    def write_to_rubric(self, rubric_name, rubric_string):
+        rubric_file = open(self.rubric_input_path + rubric_name + ".hrb", 'w')
+        rubric_file.write(rubric_string)
+        rubric_file.close()
+
     def get_solution_files(self):
         return self.solution_files
 

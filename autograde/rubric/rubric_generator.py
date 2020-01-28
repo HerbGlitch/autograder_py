@@ -11,7 +11,7 @@ class RubricGenerator():
 
     def input(self):
         self.file_string += "input:\n"
-        self.file_string += "  #todo:// every enter in this is an enter in the code"
+        self.file_string += "  #todo:// every enter in this is an enter in the code\n"
         self.file_string += "  None\n" #temp
         self.file_string += "\n"
 
